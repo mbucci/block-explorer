@@ -1,8 +1,8 @@
 build:
 	docker compose build block_explorer
 
-compile:
+requirements.txt:
 	pip-compile
 
-start: build
+start:
 	docker compose up block_explorer

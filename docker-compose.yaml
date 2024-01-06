@@ -4,6 +4,7 @@ services:
   block_explorer:
     image: block_explorer
     container_name: block_explorer
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile

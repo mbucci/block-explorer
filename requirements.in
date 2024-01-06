@@ -1,3 +1,5 @@
+pytest
+httpx
 fastapi
 pydantic
 pydantic_settings

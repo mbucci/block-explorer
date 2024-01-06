@@ -1,5 +1,5 @@
 import logging
-from typing import Union
+from datetime import datetime
 
 from app.settings import Settings
 from app.services import infura_service
@@ -16,21 +16,9 @@ log.setLevel(logging.DEBUG)
 log.warning(Settings().INFURA_API_KEY)
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/{blah}")
-def read_root(blah: str):
-    log.info(blah)
-    log.info("HELLo")
-    return {"Hello": f"{blah}"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/health")
+def health_check():
+    return {"timestamp": datetime.now().isoformat()}
 
 
 @app.get("/chains/ethereum/{address}/balance")

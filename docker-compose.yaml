@@ -11,4 +11,5 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./app:/code/app
+      - ./app:/src/app
+    command: ["--reload"]

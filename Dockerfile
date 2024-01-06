@@ -1,11 +1,11 @@
 FROM python:3.9
 
-WORKDIR /code
+WORKDIR /src
 
-COPY ./requirements.txt /code/requirements.txt
+COPY ./requirements.txt /src/requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /src/requirements.txt
 
-COPY ./app /code/app
+COPY ./app /src/app
 
-CMD ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+ENTRYPOINT ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "8000"]

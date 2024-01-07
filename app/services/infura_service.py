@@ -17,13 +17,16 @@ def get_ethereum_balance(address: str) -> float:
     try:
         address = web3.to_checksum_address(address)
     except exceptions.InvalidAddress as e:
-        log.exception(f"Invalid address: {address}")
+        msg = f"Invalid address: {address}"
 
-        raise NotFound from e
+        log.exception(msg)
+        raise NotFound(msg) from e
+
     except ValueError as e:
-        log.exception(f"Bad address: {address}")
+        msg = f"Bad address: {address}"
 
-        raise BadRequest from e
+        log.exception(msg)
+        raise BadRequest(msg) from e
 
     balanceWei = web3.eth.get_balance(address)
     balanceEth = Web3.from_wei(balanceWei, "ether")

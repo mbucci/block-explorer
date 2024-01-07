@@ -37,6 +37,6 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-      - name: Apply Terraform
-        id: tf-apply
-        run: cd terraform && make apply
+      - name: Deploy Terraform
+        id: tf-deploy
+        run: cd terraform && make deploy

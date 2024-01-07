@@ -1,8 +1,9 @@
 resource "aws_ecs_service" "block_explorer_service" {
   name = "${var.env_prefix}_service"
 
-  cluster     = var.ecs_cluster_arn
-  launch_type = "FARGATE"
+  cluster              = var.ecs_cluster_arn
+  launch_type          = "FARGATE"
+  force_new_deployment = true
 
   deployment_maximum_percent         = 200 # allow 2-at-a-time while deploying
   deployment_minimum_healthy_percent = 100

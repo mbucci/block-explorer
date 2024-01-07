@@ -12,5 +12,8 @@ start: .env
 
 ci: pytest
 
+deploy:
+	cd terraform && make deploy
+
 pytest: .env
 	docker compose run test

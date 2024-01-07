@@ -37,6 +37,10 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-      - name: Deploy Terraform
-        id: tf-deploy
-        run: cd terraform && make deploy
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~1.5.0"
+
+      - name: Deploy
+        id: deploy
+        run: make deploy

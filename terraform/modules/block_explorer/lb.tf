@@ -9,6 +9,7 @@ resource "aws_lb" "block_explorer_alb" {
   enable_deletion_protection = true
 
   security_groups = [aws_security_group.block_explorer_alb_sg.id]
+  subnets         = var.private_subnet_ids
 }
 
 ################

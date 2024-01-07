@@ -3,6 +3,7 @@ import logging
 
 from web3 import Web3, exceptions
 
+from app.errors import BadRequest, NotFound
 from app.settings import Settings
 
 
@@ -15,8 +16,14 @@ web3 = Web3(Web3.HTTPProvider(INFURA_URL))
 def get_ethereum_balance(address: str) -> float:
     try:
         address = web3.to_checksum_address(address)
-    except exceptions.InvalidAddress:
+    except exceptions.InvalidAddress as e:
         log.exception(f"Invalid address: {address}")
+
+        raise NotFound from e
+    except ValueError as e:
+        log.exception(f"Bad address: {address}")
+
+        raise BadRequest from e
 
     balanceWei = web3.eth.get_balance(address)
     balanceEth = Web3.from_wei(balanceWei, "ether")

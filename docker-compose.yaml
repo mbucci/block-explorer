@@ -17,7 +17,6 @@ services:
   test:
     image: block_explorer
     container_name: block_explorer_test
-    env_file: .env.test
     build:
       context: .
       dockerfile: Dockerfile
@@ -25,4 +24,4 @@ services:
       - 8000:8000
     volumes:
       - ./app:/src/app
-    entrypoint: ["pytest"]
+    entrypoint: ["pytest", "app"]

@@ -1,4 +1,8 @@
 .env
 
+## python
 __pycache__
 **/__pycache__
+
+## terraform
+**/.terraform

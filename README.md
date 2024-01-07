@@ -3,9 +3,9 @@
 A Basic Block Explorer
 
 ## Make
-All Entrypoints to the app are directed through `Makefile`. The following commands are available:
+All App Entrypoints are routed through a `Makefile`. The following commands are available:
 * `make start`         # starts the app
-* `make build`         # builds an dependencies necessary to deploy
+* `make build`         # builds app dependencies
 * `make deploy`        # deploys the app
-* `make test`          # tests the app
-* `make requirements`  # compile requirements
+* `make ci`            # tests the app
+* `make requirements`  # compile app requirements

@@ -7,4 +7,10 @@ terraform {
       version = "= 5.13.1"
     }
   }
+
+  backend "s3" {
+    bucket = "block-explorer-tf-state"
+    key    = "terraform"
+    region = "us-east-1"
+  }
 }

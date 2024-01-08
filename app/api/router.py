@@ -10,7 +10,7 @@ router = APIRouter(prefix="/api")
 log = logging.getLogger(__name__)
 
 
-@router.get("/chains/eth/{address}/balance")
+@router.get("/chains/eth/{address}/balance", tags=["chains"])
 def chains_eth_get_balance(address: str):
     balance = infura_service.get_ethereum_balance(address=address)
 

@@ -28,7 +28,7 @@ async def base_exc_handler(request: Request, exc: BlockExplorerException):
     return JSONResponse(status_code=404, content={"error": str(exc)})
 
 
-@app.get("/health")
+@app.get("/health", tags=["app"])
 def health_check():
     return {"timestamp": datetime.now().isoformat()}
 

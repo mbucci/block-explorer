@@ -41,6 +41,7 @@ resource "aws_iam_role" "ecs_task_execution" {
   })
 }
 
+
 ###############
 # Attachments #
 ###############

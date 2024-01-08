@@ -4,7 +4,8 @@
 build: .env
 	docker compose build block_explorer
 
-requirements:
+.PHONY: requirements.txt
+requirements.txt:
 	pip-compile
 
 start: .env

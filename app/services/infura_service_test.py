@@ -8,7 +8,7 @@ from app.services import infura_service
 @patch.object(infura_service.web3, "eth")
 class TestInfuraService:
     def test_get_ethereum_balance(self, mock_web3_eth, test_eth_address):
-        mock_web3_eth.get_balance.return_value = 1234e18  # 1234 wei
+        mock_web3_eth.get_balance.return_value = 1234e18  # 1234 eth
 
         eth, _ = infura_service.get_ethereum_balance(test_eth_address)
 

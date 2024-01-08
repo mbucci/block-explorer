@@ -1,7 +1,7 @@
 version: "3.11"
 
 services:
-  block_explorer:
+  block_explorer: &app
     image: block_explorer
     container_name: block_explorer
     env_file: .env
@@ -14,14 +14,6 @@ services:
       - ./app:/src/app
     command: ["--reload"]
 
-  test:
-    image: block_explorer
-    container_name: block_explorer_test
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8000:8000
-    volumes:
-      - ./app:/src/app
+  test: 
+    <<: *app
     entrypoint: ["pytest", "app"]

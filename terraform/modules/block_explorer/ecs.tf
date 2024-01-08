@@ -1,3 +1,6 @@
+###########
+# Service #
+###########
 resource "aws_ecs_service" "block_explorer_service" {
   name = "${var.env_prefix}_service"
 
@@ -43,6 +46,9 @@ resource "aws_ecs_service" "block_explorer_service" {
 }
 
 
+###################
+# Task Definition #
+###################
 resource "aws_ecs_task_definition" "block_explorer_definition" {
   family             = "${var.env_prefix}_task_definition"
   cpu                = "256"
@@ -56,11 +62,11 @@ resource "aws_ecs_task_definition" "block_explorer_definition" {
         secrets = [
           {
             name : "INFURA_API_KEY"
-            valueFrom : "${data.aws_secretsmanager_secret.infura_config_secret.arn}:INFURA_API_KEY::"
+            valueFrom : "${data.aws_secretsmanager_secret.infura_config_secret.arn}:API_KEY::"
           },
           {
             name : "INFURA_BASE_URL"
-            valueFrom : "${data.aws_secretsmanager_secret.infura_config_secret.arn}:INFURA_BASE_URL::"
+            valueFrom : "${data.aws_secretsmanager_secret.infura_config_secret.arn}:BASE_URL::"
           },
         ]
         essential = true

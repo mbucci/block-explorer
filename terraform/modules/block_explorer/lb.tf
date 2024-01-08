@@ -6,7 +6,7 @@ resource "aws_lb" "block_explorer_alb" {
   internal           = false
   load_balancer_type = "application"
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   security_groups = [aws_security_group.block_explorer_alb_sg.id]
   subnets         = var.private_subnet_ids

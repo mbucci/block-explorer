@@ -10,7 +10,7 @@ class TestInfuraService:
     def test_get_ethereum_balance(self, mock_web3_eth, test_eth_address):
         mock_web3_eth.get_balance.return_value = 1234e18  # 1234 wei
 
-        [eth, _] = infura_service.get_ethereum_balance(test_eth_address)
+        eth, _ = infura_service.get_ethereum_balance(test_eth_address)
 
         assert eth == 1234
 

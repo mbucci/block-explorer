@@ -15,7 +15,7 @@ resource "aws_ecs_service" "block_explorer_service" {
 
   deployment_maximum_percent         = 200 # allow 2-at-a-time while deploying
   deployment_minimum_healthy_percent = 100
-  desired_count                      = 1
+  desired_count                      = length(var.private_subnet_ids) # Task per-subnet
 
   platform_version    = "LATEST"
   propagate_tags      = "NONE"
@@ -96,10 +96,8 @@ resource "aws_ecs_task_definition" "block_explorer_definition" {
     ]
   )
 
-  network_mode = "awsvpc"
-  requires_compatibilities = [
-    "FARGATE",
-  ]
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
 
   runtime_platform {
     cpu_architecture        = "X86_64"

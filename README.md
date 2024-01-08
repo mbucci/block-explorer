@@ -11,3 +11,8 @@ $ make deploy            # deploys the app
 $ make ci                # tests the app
 $ make requirements.txt  # compile app requirements
 ```
+
+## Architecture
+![Architecture](architecture.png "Block Explorer Architecture")
+
+[Comment on Lucid Diagram!](https://lucid.app/lucidchart/e24f71af-2616-485f-98a6-16adba994ed9/edit?viewport_loc=-19%2C-93%2C2071%2C1468%2C0_0&invitationId=inv_8c12b174-cd52-4d16-b23e-086aea55d149)

@@ -31,4 +31,4 @@ def get_ethereum_balance(address: str) -> float:
     balanceWei = web3.eth.get_balance(address)
     balanceEth = Web3.from_wei(balanceWei, "ether")
 
-    return balanceEth
+    return balanceEth, balanceWei

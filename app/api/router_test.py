@@ -44,7 +44,7 @@ class TestErrorHandlers:
 @patch("app.api.router.infura_service")
 class TestChainsAPIEth:
     def test_get_balance(self, mock_infura_svc, test_client):
-        mock_infura_svc.get_ethereum_balance.return_value = 123
+        mock_infura_svc.get_ethereum_balance.return_value = [123, 123e18]
 
         response = test_client.get(f"/api/chains/eth/blah/balance")
 
@@ -52,4 +52,5 @@ class TestChainsAPIEth:
 
         response_json = response.json()
 
-        assert response_json["balance"] >= 0
+        assert response_json["balance"]["eth"] >= 0
+        assert response_json["balance"]["wei"] >= 0

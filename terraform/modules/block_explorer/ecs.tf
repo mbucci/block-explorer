@@ -10,7 +10,7 @@ resource "aws_ecs_service" "block_explorer_service" {
   # re-deploy on every apply
   force_new_deployment = true
   triggers = {
-    redeployment = timestamp()
+    redeployment = plantimestamp()
   }
 
   deployment_maximum_percent         = 200 # allow 2-at-a-time while deploying

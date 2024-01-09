@@ -15,7 +15,7 @@ $ make requirements.txt  # compile app requirements
 ## Requirements
 
 ### Technologies
-```json
+```shell
 Python ~= 3.10
 Terraform ~= 1.5
 ```

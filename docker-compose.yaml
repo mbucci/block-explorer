@@ -17,3 +17,4 @@ services:
   test: 
     <<: *app
     entrypoint: ["pytest", "app"]
+    command: [] # Can set verbosity and/or other args here

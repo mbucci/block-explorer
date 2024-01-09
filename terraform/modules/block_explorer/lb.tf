@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "block_explorer_tg" {
   health_check {
     enabled             = true
     healthy_threshold   = 5
-    interval            = 30
+    interval            = 15
     matcher             = "200"
     path                = "/health"
     port                = "traffic-port"

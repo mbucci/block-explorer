@@ -12,6 +12,23 @@ $ make ci                # tests the app
 $ make requirements.txt  # compile app requirements
 ```
 
+## Requirements
+
+### Technologies
+```json
+Python ~= 3.10
+Terraform ~= 1.5
+```
+
+### Cloud Configuration
+
+* AWS Secrets Manager JSON secret named `INFURA_CONFIG`
+    * `API_KEY`: Infura API Key
+    * `BASE_URL`: Infura API Base URL (e.g. `https://mainnet.infura.io/v3/`)
+* AWS VPC with public subnets
+* AWS S3 bucket for TF state
+
+
 ## Architecture
 ![Architecture](architecture.png "Block Explorer Architecture")
 

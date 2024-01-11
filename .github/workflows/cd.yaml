@@ -51,4 +51,4 @@ jobs:
         id: summary
         run: |
           echo '## Terraform Output' >> $GITHUB_STEP_SUMMARY
-          echo '```\n${{ steps.tf-output.outputs.stdout }}```' >> $GITHUB_STEP_SUMMARY
+          echo '```${{ steps.tf-output.outputs.stdout }}```' >> $GITHUB_STEP_SUMMARY

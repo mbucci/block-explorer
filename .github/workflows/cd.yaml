@@ -49,4 +49,6 @@ jobs:
 
       - name: Write TF Output to Summary
         id: summary
-        run: echo '${{ steps.tf-output.outputs.stdout }}'  >> $GITHUB_STEP_SUMMARY
+        run: |
+          echo '## Terraform Output' >> $GITHUB_STEP_SUMMARY
+          echo '```\n${{ steps.tf-output.outputs.stdout }}```' >> $GITHUB_STEP_SUMMARY

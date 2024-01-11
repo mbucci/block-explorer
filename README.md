@@ -1,8 +1,8 @@
 # Block Explorer
 
-A Basic Block Explorer
+[![Build](https://github.com/mbucci/block-explorer/actions/workflows/cd.yaml/badge.svg)](https://github.com/mbucci/block-explorer/actions/workflows/cd.yaml)
 
-[![Build](https://github.com/mbucci/block-explorer/actions/workflows/cd.yaml/badge.svg)]
+A Basic Block Explorer
 
 ## Make
 All App Entrypoints are routed through a `Makefile`. The following commands are available:

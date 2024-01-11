@@ -11,3 +11,6 @@ apply-auto:
 	terraform apply --auto-approve
 
 deploy: init apply-auto
+
+output:
+	terraform output

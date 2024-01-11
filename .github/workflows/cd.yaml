@@ -43,9 +43,10 @@ jobs:
         id: deploy
         run: make deploy
 
-      - name: Write Summary
+      - name: TF Output
+        id: tf-output
+        run: cd terraform && make output
+
+      - name: Write TF Output to Summary
         id: summary
-        run: |
-          echo \`\`\`\n
-          ${{ steps.deploy.outputs.stdout }}
-          \`\`\` >> $GITHUB_STEP_SUMMARY
+        run: echo '${{ steps.tf-output.outputs.stdout }}'  >> $GITHUB_STEP_SUMMARY

@@ -44,3 +44,8 @@ jobs:
       - name: Deploy
         id: deploy
         run: make deploy
+
+      - name: Write Summary
+        id: summary
+        run: echo ${{ steps.plan.outputs.stdout }} >> $GITHUB_STEP_SUMMARY
+      

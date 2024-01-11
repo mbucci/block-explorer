@@ -36,11 +36,11 @@ def get_ethereum_balance(address: str) -> Tuple[float, int]:
     return balanceEth, balanceWei
 
 
-def get_ethereum_txn(txn_hash: str):
+def get_ethereum_txn(txn_hash: str) -> dict:
     try:
         txn = web3.eth.get_transaction(txn_hash)
 
-        return txn["blockNumber"]
+        return json.loads(Web3.to_json(txn))
 
     except exceptions.TransactionNotFound as e:
         msg = f"Invalid txn: {txn_hash}"

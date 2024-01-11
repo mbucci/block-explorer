@@ -17,3 +17,12 @@ def chains_eth_get_balance(address: str):
     eth, wei = infura_service.get_ethereum_balance(address=address)
 
     return {"balance": {"eth": eth, "wei": wei}}
+
+
+@router.get("/chains/eth/txn/{txn_hash}", tags=["chains"])
+def chains_eth_txn(txn_hash: str):
+    """Get Transcation details for the given hash"""
+
+    txn = infura_service.get_ethereum_txn(txn_hash=txn_hash)
+
+    return {"txn": txn}

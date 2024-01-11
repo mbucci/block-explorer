@@ -1,5 +1,6 @@
 import os
 import logging
+import json
 from typing import Tuple
 
 from web3 import Web3, exceptions
@@ -33,3 +34,16 @@ def get_ethereum_balance(address: str) -> Tuple[float, int]:
     balanceEth = Web3.from_wei(balanceWei, "ether")
 
     return balanceEth, balanceWei
+
+
+def get_ethereum_txn(txn_hash: str):
+    try:
+        txn = web3.eth.get_transaction(txn_hash)
+
+        return txn["blockNumber"]
+
+    except exceptions.TransactionNotFound as e:
+        msg = f"Invalid txn: {txn_hash}"
+
+        log.exception(msg)
+        raise NotFound(msg) from e
